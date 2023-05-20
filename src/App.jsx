@@ -1,5 +1,5 @@
 import './App.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, createHashRouter, RouterProvider } from 'react-router-dom';
 import Layout from './Components/Layout/Layout';
 import Home from './Components/Home/Home';
 import Movies from './Components/Movies/Movies';
@@ -29,7 +29,7 @@ function App() {
     // console.log(decoded);
     setUserData(decoded)
   }
-  let routers = createBrowserRouter([
+  let routers = createHashRouter([
     { path: "", element: <Layout userData={userData} setUserData={setUserData} /> , children: [
       {index:true , element: <ProtectedRoutes><Home/></ProtectedRoutes>},
       {path:"movies" , element: <ProtectedRoutes><Movies/></ProtectedRoutes>},
